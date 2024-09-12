@@ -25,3 +25,25 @@ if (capacity > 80) {
 } else {
     console.log('More room to grow plants')
 }
+
+// Week 2
+weeks++;
+
+if (capacity > 80) {
+    console.log('pruned');
+} else if (capacity >= 50 && capacity <= 80) {
+    console.log('monitered')
+} else {
+    console.log('More room to grow plants')
+}
+
+//week 3 
+weeks++;
+
+if (capacity > 80) {
+    console.log('pruned');
+} else if (capacity >= 50 && capacity <= 80) {
+    console.log('monitered')
+} else {
+    console.log('More room to grow plants')
+}
