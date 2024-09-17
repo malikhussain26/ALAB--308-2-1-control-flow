@@ -1,49 +1,140 @@
-/**
- * 
- * 
- * 
- */
+// Part 1
 
-// variables
+const radius = 5;
 const PI = 3.1415;
-let radius = 5;
-let area = PI * radius * radius;
-let plantSpace = 0.8;
-let plantStart = 20;
+const area = PI * radius * radius;
 
-// Plant Growth Control Flow
-let weeks = 1;
-let states = plantStart * Math.pow(2, weeks);
-let capacity = area / (plantSpace * plantStart);
-let percentage = states / capacity;
+const initialPlants = 20;
+const minimumSpace = 0.8;
 
-// Pruned
-if (capacity > 80) {
-    console.log('pruned');
-} else if (capacity >= 50 && capacity <= 80) {
-    console.log('monitered')
+let currentWeek = 0;
+
+let plants = initialPlants * 2 ** currentWeek;
+
+let plantSpace = plants * 0.8;
+
+const gardern80Percent = area * 0.8;
+const gardern50Percent = area * 0.5;
+
+//Predictions
+
+console.log('============== Week 1 =================');
+// Week 1
+// ==============================================
+console.log(`Total Plants: ${plants}
+Space needed for plants ${plantSpace} square meters
+Garden Area: ${area}`);
+
+if (plantSpace > gardern80Percent) {
+  console.log(
+    `Week: ${
+      currentWeek + 1
+    } | Prune: stop them from exceeding the capacity of the garden`
+  );
+} else if (plantSpace > gardern50Percent) {
+  console.log(
+    `Week: ${
+      currentWeek + 1
+    } | Monitor: they are growing at an acceptable rate.`
+  );
 } else {
-    console.log('More room to grow plants')
+  console.log(
+    `Week: ${currentWeek + 1} | Plant: there is room to plant more plants`
+  );
 }
-
+//===============================================
+console.log('============== Week 2 =================');
 // Week 2
-weeks++;
+// ==============================================
 
-if (capacity > 80) {
-    console.log('pruned');
-} else if (capacity >= 50 && capacity <= 80) {
-    console.log('monitered')
+// increment the week
+currentWeek++;
+
+// recalculate plant stats
+plants = initialPlants * 2 ** currentWeek;
+plantSpace = plants * 0.8;
+
+console.log(`Total Plants: ${plants}
+  Space needed for plants ${plantSpace} square meters
+  Garden Area: ${area}`);
+
+if (plantSpace > gardern80Percent) {
+  console.log(
+    `Week: ${
+      currentWeek + 1
+    } | Prune: stop them from exceeding the capacity of the garden`
+  );
+} else if (plantSpace > gardern50Percent) {
+  console.log(
+    `Week: ${
+      currentWeek + 1
+    } | Monitor: they are growing at an acceptable rate.`
+  );
 } else {
-    console.log('More room to grow plants')
+  console.log(
+    `Week: ${currentWeek + 1} | Plant: there is room to plant more plants`
+  );
+}
+//===============================================
+
+// Week 3
+console.log('============== Week 3 =================');
+// ==============================================
+
+// increment the week
+currentWeek++;
+
+// recalculate plant stats
+plants = initialPlants * 2 ** currentWeek;
+
+plantSpace = plants * 0.8;
+
+console.log(`Total Plants: ${plants}
+  Space needed for plants ${plantSpace} square meters
+  Garden Area: ${area}`);
+
+if (plantSpace > gardern80Percent) {
+  console.log(
+    `Week: ${
+      currentWeek + 1
+    } | Prune: stop them from exceeding the capacity of the garden`
+  );
+} else if (plantSpace > gardern50Percent) {
+  console.log(
+    `Week: ${
+      currentWeek + 1
+    } | Monitor: they are growing at an acceptable rate.`
+  );
+} else {
+  console.log(
+    `Week: ${currentWeek + 1} | Plant: there is room to plant more plants`
+  );
+}
+//===============================================
+
+// Part 2: Thinking Bigger
+
+const plantStart = 100;
+const week = 10;
+
+
+// Additional space needed
+
+const totalPlants = plantStart * 2 ** week;
+
+
+const additionalSpace = area - plantSpace;
+console.log("addtional space required:", additionalSpace, "square meters");
+
+
+if (additionalSpace > 0) {
+  const percentageIncrease = (additionalSpace / area) * 100;
+  console.log("percentage increase in space", percentageIncrease.toFixed(2), "%");
+} else if (addtionalSpace === 0) {
+  console.log("No additional space is required.");
+} else {
+  console.log("There is a surplus of space.");
 }
 
-//week 3 
-weeks++;
 
-if (capacity > 80) {
-    console.log('pruned');
-} else if (capacity >= 50 && capacity <= 80) {
-    console.log('monitered')
-} else {
-    console.log('More room to grow plants')
-}
+// ======================================================================================
