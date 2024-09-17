@@ -138,3 +138,18 @@ if (additionalSpace > 0) {
 
 
 // ======================================================================================
+
+
+// Part 3 Erros in Judgement
+
+try {
+  const totalPlants = initialPlants * 2 ** week;
+  const plantSpace = totalPlants * minimumSpace;
+
+  if (plantSpace > area) {
+    throw new Error("The required space exceeds the available area");
+  }
+  console.log("Additional space required:", additionalSpace, "square meters");
+} catch (error) {
+  console.log("An error occurred:", error.message);
+}
